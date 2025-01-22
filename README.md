@@ -7,7 +7,7 @@ This is a Next.js Todo app created as a demonstration of how to seamlessly add d
 1. [Clone the Repository](#clone-the-repository)
 2. [Initialize a Jupiter Project](#initialize-a-jupiter-project)
 3. [Adding Dependencies](#adding-dependencies)
-4. [Local Development](#local-development-optional)
+4. [Local Development (Optional)](#local-development-optional)
 5. [Deploy](#deploy)
 
 ---
