@@ -147,8 +147,14 @@ ju r
 This command connects to your VPS and uses Docker Compose to set up your dependencies. Upon successful execution, you should see logs similar to the following when the service is created with `docker compose up`:
 
 ```
-Creating todo-app-db  ... done
-Creating todo-app-mail ... done
+ Container todo-app-mail  Creating
+ Container todo-app-db  Creating
+ Container todo-app-mail  Created
+ Container todo-app-db  Created
+ Container todo-app-mail  Starting
+ Container todo-app-db  Starting
+ Container todo-app-db  Started
+ Container todo-app-mail  Started
 ```
 
 ## Push Datebase Schema on the Host
