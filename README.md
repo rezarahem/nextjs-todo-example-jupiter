@@ -8,7 +8,9 @@ This is a Next.js Todo app created as a demonstration of how to seamlessly add d
 2. [Initialize a Jupiter Project](#initialize-a-jupiter-project)
 3. [Adding Dependencies](#adding-dependencies)
 4. [Local Development (Optional)](#local-development-optional)
-5. [Deploy](#deploy)
+5. [Push Datebase Schema on the Host](#push-datebase-schema-on-the-host)
+6. [Update Dockerfile with Eequired Environment Variables](#update-dockerfile-with-eequired-environment-variables)
+7. [Deploy](#deploy)
 
 ---
 
@@ -148,6 +150,35 @@ This command connects to your VPS and uses Docker Compose to set up your depende
 Creating todo-app-db  ... done
 Creating todo-app-mail ... done
 ```
+
+## Push Datebase Schema on the Host
+
+To update your database schema on the VPS efficiently, you can establish a secure `tunnel` between your local machine and the database running on the VPS. This allows you to connect to the remote database as if it were local, enabling seamless updates. Use the following command to set up the `tunnel`:
+
+```bash
+ssh -L 5432:localhost:5432 -p <vps-ssh-port> <vps-user>@<vps-ip>
+```
+
+This command forwards port `5432` (commonly used by PostgreSQL) on your local machine to the same port on the VPS, creating a direct and secure connection to the database.
+
+Once the tunnel is established, you can update your database schema using the following command:
+
+```
+npx drizzle-kit push
+```
+
+## Update Dockerfile with Eequired Environment Variables
+
+For your application to function correctly, ensure the following environment variables are added to the Dockerfile located in the root directory:
+
+```
+ENV DATABASE_URL=postgresql://user:pass@todo-app-db:5432/db
+ENV SMTP_EMAIL=<your-smtp-email>
+```
+
+These should be included under the prod section to ensure proper configuration in the production environment.
+
+**Note** You can choose any name for your SMTP email address.
 
 ## Deploy
 
