@@ -142,16 +142,16 @@ Now, you can set up your dependencies with the following command:
 ju r
 ```
 
-This command connects to your VPS and uses Docker Compose to set up your dependencies. Upon successful execution, you should see logs similar to the following when the service is created with `docker compose up`: 
+This command connects to your VPS and uses Docker Compose to set up your dependencies. Upon successful execution, you should see logs similar to the following when the service is created with `docker compose up`:
 
 ```
 Creating todo-app-db  ... done
 Creating todo-app-mail ... done
 ```
 
-## Deploy 
+## Deploy
 
-With the dependencies set up, you can now deploy the `Todo app` by running the following command:
+With the dependencies and configurations set up, you can now deploy the `Todo app` by running the following command:
 
 ```
 ju d
